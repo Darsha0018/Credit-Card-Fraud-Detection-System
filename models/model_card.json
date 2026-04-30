@@ -1,0 +1,39 @@
+{
+  "model_name": "Credit Card Fraud Detector",
+  "model_type": "XGBoost Classifier",
+  "version": "1.0.0",
+  "trained_on": "Synthetic transaction data (50,000 rows)",
+  "training_period": "2023-01-01 to 2023-10-21",
+  "validation_period": "2023-10-21 to 2023-12-31",
+  "saved_at": "2026-04-30 05:02:51",
+  "metrics": {
+    "pr_auc": 0.989,
+    "roc_auc": 0.9996,
+    "threshold": 0.23
+  },
+  "best_hyperparameters": {
+    "n_estimators": 391,
+    "max_depth": 4,
+    "learning_rate": 0.0392,
+    "subsample": 0.8666,
+    "colsample_bytree": 0.7269,
+    "reg_lambda": 3.322,
+    "reg_alpha": 1.0499,
+    "min_child_weight": 4
+  },
+  "features": {
+    "total_features_after_ohe": 60,
+    "top_shap_drivers": [
+      "prev_1h_tx_count_card",
+      "velocity_ratio",
+      "amt_vs_avg_ratio",
+      "prev_24h_tx_count_card",
+      "log_amount"
+    ]
+  },
+  "cost_model": {
+    "fn_cost_inr": 5000,
+    "fp_cost_inr": 50,
+    "decision_rule": "REVIEW if prob >= threshold else ALLOW"
+  }
+}
