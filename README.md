@@ -11,181 +11,47 @@ An end-to-end Machine Learning system that detects fraudulent credit card transa
 
 ## 1. Project Explanation
 
-### What is Credit Card Fraud Detection?
 
-Credit Card Fraud Detection is the process of identifying unauthorized, malicious transactions before they are approved. It relies on analyzing historical transaction data to recognize patterns of legitimate versus fraudulent behavior.
+# 💳 Credit Card Fraud Detection System
 
-### Why is it Important & What Problems Does it Solve?
+An end-to-end Machine Learning system for detecting fraudulent credit card transactions in near real-time.
 
-Fraud costs the global economy billions of dollars annually. This system prevents direct financial loss for banks and customers, reduces the operational costs of manual reviews, and protects the institution's reputation.
-
-### How Banks and Fintechs Use It
-
-Banks use low-latency machine learning pipelines to score transactions in milliseconds. If a transaction's fraud probability exceeds a dynamic threshold, the system triggers an alert to either block the transaction instantly or send it to a human analyst for review.
-
-### The Workflow
-
-Raw Transaction Data → Preprocessing (handling missing values, scaling) → Feature Engineering (velocity, transaction ratios) → ML Model Inference → Fraud Prediction (Probability Score) → Dashboard Alert (Allow/Review/Block).
+The system combines **synthetic transaction generation, feature engineering, machine learning, FastAPI model serving, and a real-time fraud monitoring dashboard** to identify suspicious transactions and classify them as **ALLOW, REVIEW, or BLOCK**.
 
 ---
 
-## 2. Tech Stack
+## 🚀 Project Overview
 
-This project implements an **Intermediate to Advanced** tech stack, ideal for bridging Data Science and Software Engineering.
+Credit card fraud detection is a highly imbalanced classification problem where fraudulent transactions represent only a small percentage of all transactions.
 
-- **Data Processing:** Python, Pandas, NumPy
-- **Machine Learning:** Scikit-learn, XGBoost/LightGBM, Imbalanced-learn (SMOTE)
-- **Model Serving:** FastAPI (Python)
-- **Frontend Dashboard:** Next.js (React), Tailwind CSS, Custom SVG Charts
-- **Evaluation Metrics:** PR-AUC, Recall@FPR, Confusion Matrix
+This project builds a complete fraud detection pipeline that:
+
+- Generates realistic synthetic transaction data
+- Performs feature engineering and preprocessing
+- Handles highly imbalanced fraud data
+- Trains and tunes an XGBoost classification model
+- Evaluates the model using PR-AUC
+- Serves predictions through a FastAPI backend
+- Streams transactions through the application
+- Displays fraud predictions through an interactive dashboard
+- Continuously updates transaction statistics and risk visualizations
 
 ---
 
-## 3. Project Architecture
+## 🎯 Problem Statement
 
-### Data Flow
+Financial institutions process thousands of transactions every second. Detecting fraudulent transactions quickly is critical because delayed detection can result in financial losses.
 
-1. **Input:** Transaction data (Amount, Time, Location, Merchant Category, Card ID).
-2. **Processing:** PII removal, chronological splitting, scaling, and engineering velocity features.
-3. **Model:** Cost-sensitive classification model (e.g., XGBoost) optimized for PR-AUC.
-4. **Output:** A continuous probability score [0, 1] evaluated against a dynamic threshold to output a decision.
+The objective of this project is to build a machine learning system that can:
 
-### Text-Based Diagram
+1. Analyze transaction characteristics
+2. Calculate the probability that a transaction is fraudulent
+3. Apply a decision threshold
+4. Classify transactions as:
 
 ```text
-[ Raw Transactions (CSV/Parquet) ]
-       ↓
-[ Feature Engineering Pipeline (Velocity, Aggregates) ]
-       ↓
-[ ML Model (XGBoost / Random Forest) ] ← Trained with SMOTE / Class Weights
-       ↓
-[ FastAPI Scoring Endpoint (/score) ]
-       ↓
-[ Next.js Fraud Ops Dashboard (Live Visualization & Thresholding) ]
-```
+ALLOW
+REVIEW
+BLOCK
 
----
 
-## 4. Implementation Plan
-
-- **Phase 1 (Setup):** Initialize Python environment and Next.js frontend.
-- **Phase 2 (Data Loading):** Ingest public/synthetic credit card data safely.
-- **Phase 3 (Data Cleaning):** Handle missing values and format data types.
-- **Phase 4 (EDA):** Analyze class imbalance and plot distribution metrics.
-- **Phase 5 (Feature Engineering):** Create time-based velocity and categorical frequency features.
-- **Phase 6 (Model Training):** Train baselines and tune XGBoost with `scale_pos_weight`.
-- **Phase 7 (Evaluation):** Measure PR-AUC and plot Precision-Recall curves.
-- **Phase 8 (Prediction API):** Wrap the model in a FastAPI endpoint.
-- **Phase 9 (Visualization):** Connect the Next.js dashboard to visualize metrics.
-- **Phase 10 (Deployment):** Prepare the repository for GitHub and portfolio presentation.
-
----
-
-## 5. Folder Structure
-
-```text
-Credit-Card-Fraud-Detection/
-│
-├── data/                    # Synthetic or public transaction datasets
-├── notebooks/               # Jupyter notebooks for EDA and model experimentation
-├── src/                     # Python source code (features, pipeline, train)
-├── models/                  # Serialized ML models (.joblib / .pkl)
-├── apps/web/                # Next.js Frontend Dashboard
-│   ├── app/                 # React components, pages, and API routes
-│   └── globals.css          # Tailwind styling
-├── assets/                  # Images and screenshots for documentation
-├── README.md                # Project documentation
-└── requirements.txt         # Python dependencies
-```
-
----
-
-## 6. Installation & How to Run
-
-### Requirements
-
-- Python 3.10+
-- Node.js 18+
-
-### Setup Instructions
-
-1. **Clone the repository:**
-
-```bash
-git clone https://github.com/Sonia068/Credit-Card-Fraud-Detection.git
-cd Credit-Card-Fraud-Detection
-```
-
-2. **Run the Frontend Dashboard:**
-
-```bash
-cd apps/web
-npm install
-npm run dev
-# The dashboard will be available at http://localhost:3000
-```
-
-_(Note: Ensure you have run the data generation or connected the API route for the dashboard to populate with transaction data)._
-
----
-
-## 7. Virtual Simulation
-
-Because real banking data is highly confidential, this project uses simulated, PII-safe data.
-
-- **Simulation Logic:** The system generates synthetic transactions. Normal transactions follow standard consumer habits. Fraudulent transactions mimic velocity attacks (multiple rapid transactions) or sudden high-value purchases at unusual hours.
-- **Detection:** The ML model picks up on these velocity spikes and contextual anomalies, outputting a high risk score.
-- **Alerts:** The dashboard visually flags any transaction crossing the analyst-defined threshold (e.g., > 70% risk) in bright red, moving it to the blocked queue.
-
----
-
-## 8. Outputs & Screenshots
-
-### Main Dashboard Overview
-
-![Main Dashboard](assets/dashboard_overview.png)
-
-### Deep Analytics View
-
-![Analytics View](assets/analytics_view.png)
-
-### Transaction Ledger
-
-![Transaction Ledger](assets/transaction_ledger.png)
-
-### Demo Video
-
-[![Watch Demo](https://img.youtube.com/vi/HQBtJNfBPzk/0.jpg)](https://youtu.be/HQBtJNfBPzk)
-
----
-
-## 9. Proof Strategy & Key Learnings
-
-**Day-wise Execution Strategy:**
-
-- **Day 1:** Project setup, requirement gathering, and virtual environment creation.
-- **Day 2:** Dataset ingestion, schema enforcement, and chronological splitting.
-- **Day 3:** Exploratory Data Analysis (EDA) and feature engineering (velocity ratios).
-- **Day 4:** Model training, handling class imbalance, and threshold optimization.
-- **Day 5:** FastAPI integration, Next.js Dashboard development, and results documentation.
-
-**Key Learnings:**
-
-- Managing extreme class imbalance in real-world scenarios.
-- The importance of PR-AUC over standard accuracy metrics.
-- Building a full-stack ML product, from Python backend to React frontend.
-
----
-
-## Author
-
-Built by **[Sonia Thakur]**
-
-- GitHub: [Sonia068](https://github.com/Sonia068)
-- LinkedIn: [Sonia Thakur](https://www.linkedin.com/in/sonia-thakur-6ab93b349/)
-
----
-
-## License
-
-MIT License
