@@ -1,10 +1,6 @@
-# Credit Card Fraud Detection System
-
-## 1. Project Explanation
-
-
 # 💳 Credit Card Fraud Detection System
 
+## 1. Project Explanation
 An end-to-end Machine Learning system for detecting fraudulent credit card transactions in near real-time.
 
 The system combines **synthetic transaction generation, feature engineering, machine learning, FastAPI model serving, and a real-time fraud monitoring dashboard** to identify suspicious transactions and classify them as **ALLOW, REVIEW, or BLOCK**.
