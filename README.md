@@ -531,6 +531,3 @@ https://www.linkedin.com/in/darshan-chavan-24162a27a/
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**.
