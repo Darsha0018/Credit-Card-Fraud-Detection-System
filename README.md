@@ -1,14 +1,5 @@
 # Credit Card Fraud Detection System
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Next.js](https://img.shields.io/badge/Next.js-15.0+-black)
-![Machine Learning](https://img.shields.io/badge/ML-Scikit--Learn%20%7C%20XGBoost-orange)
-![Status](https://img.shields.io/badge/Status-Active-success)
-
-An end-to-end Machine Learning system that detects fraudulent credit card transactions in near real-time. It utilizes cost-sensitive learning techniques for imbalanced classification, exposes a scoring API (batch + streaming hook), and visualizes precision-recall trade-offs, fraud alerts, and feature impacts in a highly responsive Next.js dashboard.
-
----
-
 ## 1. Project Explanation
 
 
