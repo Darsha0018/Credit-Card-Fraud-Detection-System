@@ -1,16 +1,53 @@
+# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.env
+*.pyo
+
+# Virtual environment
+.venv/
 venv/
 env/
-.venv/
-*.joblib
-*.pkl
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
 data/*.csv
 data/*.parquet
-outputs/*.png
-outputs/*.csv
+data/*.pkl
+
+# ML models
+models/*.joblib
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.pth
+
+# ML experiment/tracking
+mlruns/
+wandb/
+
+# Frontend
+apps/web/node_modules/
+apps/web/.next/
+apps/web/dist/
+
+# Logs
+*.log
+
+# OS
 .DS_Store
-.ipynb_checkpoints/
-node_modules/
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/

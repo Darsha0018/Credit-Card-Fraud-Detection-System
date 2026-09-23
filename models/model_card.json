@@ -5,21 +5,21 @@
   "trained_on": "Synthetic transaction data (50,000 rows)",
   "training_period": "2023-01-01 to 2023-10-21",
   "validation_period": "2023-10-21 to 2023-12-31",
-  "saved_at": "2026-04-30 05:02:51",
+  "saved_at": "2026-09-23 13:13:50",
   "metrics": {
-    "pr_auc": 0.989,
-    "roc_auc": 0.9996,
-    "threshold": 0.23
+    "pr_auc": 0.9884,
+    "roc_auc": 0.999,
+    "threshold": 0.22
   },
   "best_hyperparameters": {
-    "n_estimators": 391,
-    "max_depth": 4,
-    "learning_rate": 0.0392,
-    "subsample": 0.8666,
-    "colsample_bytree": 0.7269,
-    "reg_lambda": 3.322,
-    "reg_alpha": 1.0499,
-    "min_child_weight": 4
+    "n_estimators": 294,
+    "max_depth": 7,
+    "learning_rate": 0.0689,
+    "subsample": 0.6843,
+    "colsample_bytree": 0.7652,
+    "reg_lambda": 8.3094,
+    "reg_alpha": 1.4668,
+    "min_child_weight": 7
   },
   "features": {
     "total_features_after_ohe": 60,
