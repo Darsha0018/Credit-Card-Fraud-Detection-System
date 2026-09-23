@@ -37,10 +37,11 @@ The objective of this project is to build a machine learning system that can:
 4. Classify transactions as:
 
 ```text
+
 ALLOW
 REVIEW
 BLOCK
-
+``` 
 🏗️ System Architecture
                  ┌──────────────────────┐                               
                  │ Transaction Generator│
@@ -80,6 +81,9 @@ BLOCK
                  │ Transactions / Risk  │
                  │ Alerts / Analytics   │
                  └──────────────────────┘
+
+  ---
+  
 
 🔄 Machine Learning Pipeline
 Raw Transaction Data
